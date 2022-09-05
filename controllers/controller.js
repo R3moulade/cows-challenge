@@ -11,7 +11,7 @@ export default class Controller {
         <td>${cow.getBreed()}</td>
         <td>${cow.getBirthday()}</td>
         <td>${cow.getMilk()}</td>
-        <td><button type="button" id="${cow.getRegistrationNumber()}">Delete</button></td>
+        <td><button type="button" class="button" id="${cow.getRegistrationNumber()}">Delete</button></td>
         </tr>`
     }
 

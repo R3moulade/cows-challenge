@@ -10,19 +10,18 @@
 </head>
 
 <body>
-
-<h1>Cow inventory</h1>
-<div class="header">
-    <div>
+<header>
+    <h1 class="header-left">Cow inventory</h1>
+    <div class="header-right">
         <button type="button" class="button" id="addCowButton">Add cow</button>
         <button type="button" class="button" id="showAllCowsButton">Show all cows</button>
-    </div>
-    <form id="rnSearchForm">
-    <input type="search" id="rnField" class="inputField"
-    placeholder="Search registration number" required>
+    
+    <form id="rnSearchForm" class="header-right">
+    <input type="search" id="rnField" class="inputField" placeholder="Search registration number" required>
     <button type="submit" class="button">Search</button>
     </form>
-</div>
+    </div>
+</header>
 
 <!-- panel starts here -->
 <!-- add dialogue start-->
@@ -92,18 +91,6 @@
 
 
 <table class="tablelist">
-    <thead>
-        <tr>
-            <th>Registration</th>
-            <th>Stall</th>
-            <th>Breed</th>
-            <th>Birthday</th>
-            <th>Milk (L)</th>
-            <th>Topwood</th>
-            <th>Price</th>
-            <th>Action</th>
-        </tr>
-    </thead>
     <tbody id="searchResult"></tbody>
 </table>
 
