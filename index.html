@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow inventory</title>
+    <link rel="stylesheet" href="styles/mystyle.css">
+</head>
+
+<body>
+
+<h1>Cow inventory</h1>
+<div class="header">
+    <div>
+        <button type="button" class="button" id="addCowButton">Add cow</button>
+        <button type="button" class="button" id="showAllCowsButton">Show all cows</button>
+    </div>
+    <form id="rnSearchForm">
+    <input type="search" id="rnField" class="inputField"
+    placeholder="Search registration number" required>
+    <button type="submit" class="button">Search</button>
+    </form>
+</div>
+
+<!-- panel starts here -->
+<!-- add dialogue start-->
+<dialog id="cowDialog">
+    <form method="dialog" id="cowDialogForm">
+        <fieldset>
+            <legend>Add new cow</legend>
+            <label for="rnfield">R/N:</label><input type="text" class="inputField dialogField" id="rnfield" placeholder="Type in registration number" required>
+            <label for="stallfield">Stall Number: </label><input type="text" class="inputField dialogField" id="stallfield" placeholder="Type in stall name" required>
+            <label for="breedfield">Breed: </label><input type="text" class="inputField dialogField" id="breedfield" placeholder="Type in breed name" required>
+            <label for="typefield">Birthday: </label><input type="text" class="inputField dialogField" id="birthdayfield" placeholder="Type in/select birthday" required>
+            <label for="milkfield">Annual Milk (L): </label><input type="text" class="inputField dialogField" id="milkfield" placeholder="Type in milk (L)" required>
+            <br><br>
+            <div class="dialogBtnsPanel">
+                <button type="button" id="cancelButton" class="button">Cancel</button>
+                <button type="submit" id="saveButton" class="button">Save</button>
+            </div>
+        </fieldset>
+    </form>
+</dialog>
+<!-- add dialogue end-->
+<aside class="searchPanel" id="searchPanel">
+    <span class="panelText" id="panelText">A D V A N C E D&nbsp;&nbsp;S E A R C H</span>
+    <form id="searchForm" class="searchForm">
+        <div class="closeCross" id="closeCross">X</div>
+            <label class="searchFormLabel" for="stall">Stall Number</label>
+            <input type="text" id="stall" class="searchFormField">
+            <label class="searchFormLabel" for="breed">Breed</label>
+            <input type="text" id="breed" class="searchFormField">
+            <label class="searchFormLabel" for="birthday">Birthday</label>
+            <input type="text" id="birthday" class="searchFormField">
+            <label class="searchFormLabel" for="milk">Milk (L)</label>
+            <input type="number" step="500.00" id="milk" class="searchFormField">
+
+            <!-- <label class="searchFormLabel" for="topwood">Topwood</label>
+            <input type="text" id="topwood" class="searchFormField">
+            <label class="searchFormLabel" for="price">Price</label>
+            <input type="number" step="0.50" id="price" class="searchFormField"> -->
+            <br><br>
+            <div class="searchFormPanel">
+                <button type="reset" class="searchFormButton">Reset</button>
+                <button type="submit" class="searchFormButton">Apply</button>
+            </div> 
+    </form>
+</aside>
+<!-- panel ends here -->
+<!-- add guitar dialog end -->
+<!-- delete confirmation dialog start -->
+    <dialog id="confirmDialog">
+        <form method="dialog" id="confirmDialogForm">
+            <fieldset>
+                <legend>Delete cow?</legend>
+                Do you really want to delete the cow?
+                <br><br>
+                <div class="dialogBtnsPanel">
+                    <button type="submit" class="button">Yes</button>
+                    <button type="button" class="button" id="cancelConfirmBtn">No</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+<!-- delete confirmation dialog end -->
+<!-- Hidden field -->
+<form>
+    <input type="hidden" id="hiddenRnField">
+</form>
+
+
+<table class="tablelist">
+    <thead>
+        <tr>
+            <th>Registration</th>
+            <th>Stall</th>
+            <th>Breed</th>
+            <th>Birthday</th>
+            <th>Milk (L)</th>
+            <!-- <th>Topwood</th>
+            <th>Price</th> -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="searchResult"></tbody>
+</table>
+
+
+<div id="snackbar">Some message will arrive here</div>
+<script type="module">
+    import Model from "./models/model.js"
+    import Controller from "./controllers/controller.js"
+    import View from "./views/view.js"
+
+    window.onload = function () {
+        const model = new Model();
+        const controller = new Controller();
+        const view = new View(controller);
+        controller.initialize(model, view);
+    }
+</script>
+
+<!-- 
+<script src="utils/guitarClass.js"></script>
+<script src="utils/inventoryClass.js"></script>
+
+<script>
+    const guitarList = new Inventory();
+    guitarList.addGuitar("34-343", 3123.75, "Gibson", "Les Paul", "Electric", "Maple", "Walnut");
+    const optimalGuitar = new Guitar("", 4000.00, "Gibson", "Les Paul", "Electric", "Maple", "Walnut");
+    console.log(guitarList.search(optimalGuitar));
+</script> -->
+</body>
+
+</html>
