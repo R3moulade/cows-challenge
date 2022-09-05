@@ -4,7 +4,7 @@ export default class Inventory {
         this.cows = [];
     }
     addCow(registrationNumber, stall, breed, birthday, milk) {
-        const newCow = new Cow(registrationNumber, stall, breed, birthday, milk);
+        const newCow = new Cow("Registration Number: " + registrationNumber, "Stall Number: " + stall, "Breed: " + breed, "Birthday Date: " + birthday, "Milk (L): " + milk);
         this.cows.push(newCow);
     }
     getCow(registrationNumber) {
